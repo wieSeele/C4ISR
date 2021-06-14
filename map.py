@@ -9,9 +9,6 @@ from PyQt5.QtCore import Qt, QUrl, QFileInfo
 from PyQt5.QtWebEngineWidgets import QWebEngineView
 
 
-# world_map = folium.Map()
-# world_map.save("world_map.html")
-# webbrowser.open("world_map.html")
 
 class Main_Window(QMainWindow):
   def __init__(self):
@@ -78,7 +75,8 @@ class Main_Window(QMainWindow):
     self.map_grid = QGridLayout()
     self.browser = QWebEngineView()
     self.map_grid.addWidget(self.browser)
-    self.browser.load(QUrl(QFileInfo("./map.html").absoluteFilePath()))
+    # self.browser.load(QUrl(QFileInfo("./map.html").absoluteFilePath()))
+    self.browser.load(QUrl('www.baidu.com'))
     show_frame.setLayout(self.map_grid)
 
     self.setGeometry(self.width/4, self.height/4, self.width/2, self.height/2)
@@ -92,11 +90,12 @@ class Main_Window(QMainWindow):
     self.get_ditu(self.ditu1)
 
   def get_ditu(self, text):
-    world_map = folium.Map(location=[39.93, 116.40], zoom_start=10)
-    world_map.save("map.html")
-    webbrowser.open('map.html')
+    # world_map = folium.Map(location=[39.93, 116.40], zoom_start=10)
+    # world_map.save("map.html")
+    # webbrowser.open('map.html')
 
-    self.browser.load(QUrl(QFileInfo('./map.html').absoluteFilePath()))
+    # self.browser.load(QUrl(QFileInfo('./map.html').absoluteFilePath()))
+    self.browser.load(QUrl('www.baidu.com'))
     if text in self.knowledge:
       self.knowledge_label.setText(self.knowledge[text])
     else:
